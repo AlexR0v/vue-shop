@@ -1,32 +1,43 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <div class='navbar'>
+      <div class='navbar-content'>
+        <div class='logo'>VUE</div>
+        <div>
+          <router-link
+              v-for='(link, index) in links'
+              :key='index'
+              :to='link.path'
+          >{{ link.title }}
+          </router-link>
+        </div>
+      </div>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
+<script lang='ts'>
+import Vue from 'vue'
+
+export default Vue.extend({
+  data() {
+    return {
+      links: [
+        {title: 'Home', path: '/'},
+        {title: 'About', path: '/about'},
+      ]
+    }
+  }
+})
+
+</script>
+
+<style lang='scss'>
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
