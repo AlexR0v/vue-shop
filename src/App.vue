@@ -1,18 +1,29 @@
 <template>
-  <div>
-    <div class='navbar'>
-      <div class='navbar-content'>
-        <div class='logo'>VUE</div>
-        <div>
-          <router-link
-              v-for='(link, index) in links'
-              :key='index'
-              :to='link.path'
-          >{{ link.title }}
-          </router-link>
+  <div class='wrapper'>
+    <header>
+      <div class='navbar'>
+        <div class='container'>
+          <div class='navbar-content'>
+            <div class='logo'>
+              VUE
+            </div>
+            <ul class='navbar-list'>
+              <li
+                  class='navbar-item'
+                  v-for='(link, index) in links'
+                  :key='index'
+              >
+                <router-link
+                    class='navbar-link'
+                    :to='link.path'
+                >{{ link.title }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
     <router-view />
   </div>
 </template>
@@ -25,7 +36,7 @@ export default Vue.extend({
     return {
       links: [
         {title: 'Home', path: '/'},
-        {title: 'About', path: '/about'},
+        {title: 'Shop', path: '/shop'},
       ]
     }
   }
@@ -34,10 +45,9 @@ export default Vue.extend({
 </script>
 
 <style lang='scss'>
-body {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+.navbar-link {
+  &.router-link-exact-active {
+    color: #5247e7
+  }
 }
 </style>

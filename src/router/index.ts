@@ -11,9 +11,14 @@ const routes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import( '../views/About.vue')
+    path: '/shop',
+    name: 'Shop',
+    component: () => import( '../views/Shop.vue')
+  },
+  {
+    path: '/shop/:id',
+    name: 'product',
+    component: () => import( '../views/Product.vue')
   },
   {
     path: '*',
@@ -24,7 +29,6 @@ const routes: Array<RouteConfig> = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
   routes
 })
 

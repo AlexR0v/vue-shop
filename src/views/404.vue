@@ -1,7 +1,11 @@
 <template>
-  <div class='container'>
-    <h1>Page not found</h1>
-    <h3>Go to <router-link to='/'>home</router-link> page</h3>
+  <div class='wrapper-content wrapper-content--fixed'>
+    <section>
+      <div class='container'>
+        <h1 class='title'>PAGE NOT FOUND!</h1>
+        <p>Go to <router-link to='/' class='link'>home</router-link> page</p>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -13,6 +17,17 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style
+    lang='scss'
+    scoped
+>
+
+.wrapper-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+}
 
 </style>
